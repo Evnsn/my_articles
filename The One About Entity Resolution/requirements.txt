@@ -1,0 +1,3 @@
+# Python==3.10
+recordlinkage==0.15
+jupyterlab==4.0.0
