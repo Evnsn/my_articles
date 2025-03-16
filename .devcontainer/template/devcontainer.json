@@ -1,9 +1,20 @@
 {
-    "containerName": "FastAPI-React-Backend-Dev",
+    "name": "${containerEnv:DEV_NAME}",
+    "containerName": "${containerEnv:DEV_NAME}",
     "build": {
         "dockerfile": "Dockerfile",
-        "context": "."
+        "context": ".",
     },
+    // "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/${FOLDER_NAME}",
+    "remoteUser": "root",
+    "command": "sleep infinity",
+    "forwardPorts": [8080],
+    "shutdownAction": "stopCompose",
+    "runArgs": [
+        "--name=${containerEnv:DEV_NAME}",
+        "--label=com.docker.compose.project=${containerEnv:DEV_NAME}"
+    ],
     "extensions": [
         
     ]
