@@ -1,24 +1,64 @@
 {
-    "name": "${containerEnv:DEV_NAME}",
-    "containerName": "${containerEnv:DEV_NAME}",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "context": ".",
-        "args": {
-            "DEV_NAME": "${containerEnv:DEV_NAME}"
-        }
-    },
-    // "workspaceMount": "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind",
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/${FOLDER_NAME}",
+    "name": "base",
+    "containerName": "base",
+    "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/base",
     "remoteUser": "root",
     "command": "sleep infinity",
-    "forwardPorts": [8080],
+    "forwardPorts": [],
     "shutdownAction": "stopCompose",
     "runArgs": [
-        "--name=${containerEnv:DEV_NAME}",
-        "--label=com.docker.compose.project=${containerEnv:DEV_NAME}"
+        "--name=base",
+        "--label=com.docker.compose.project=base"
     ],
-    "extensions": [
-        
-    ]
+    "features": {
+        "ghcr.io/va-h/devcontainers-features/uv:1": {}
+    },
+    "postCreateCommand": "uv sync",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-python.pylint",
+                "ms-python.isort",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "njpwerner.autodocstring",
+                "eamodio.gitlens",
+                "mhutchie.git-graph",
+                "ms-toolsai.jupyter",
+                "christian-kohler.path-intellisense"
+            ],
+            "settings": {
+                "python.formatting.provider": "none",
+                "editor.formatOnSave": true,
+                "editor.rulers": [
+                    88
+                ],
+                "files.trimTrailingWhitespace": true,
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.organizeImports": "explicit"
+                    },
+                    "editor.defaultFormatter": "ms-python.black-formatter",
+                    "editor.insertSpaces": true,
+                    "editor.tabSize": 4
+                },
+                "python.linting.enabled": true,
+                "python.linting.pylintEnabled": true,
+                "isort.args": [
+                    "--profile",
+                    "black",
+                    "--line-length",
+                    "88"
+                ],
+                "black-formatter.args": [
+                    "--line-length",
+                    "88"
+                ],
+            }
+        }
+    }
 }
