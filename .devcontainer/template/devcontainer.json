@@ -1,0 +1,10 @@
+{
+    "containerName": "FastAPI-React-Backend-Dev",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "extensions": [
+        
+    ]
+}

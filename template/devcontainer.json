@@ -1,0 +1,20 @@
+{
+    "name": "template-dev",
+    "containerName": "template-dev",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": "."
+    },
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/template",
+    "remoteUser": "root",
+    "command": "sleep infinity",
+    "forwardPorts": [8080],
+    "shutdownAction": "stopCompose",
+    "runArgs": [
+        "--name=template-dev",
+        "--label=com.docker.compose.project=template-dev"
+    ],
+    "extensions": [
+        
+    ]
+}
