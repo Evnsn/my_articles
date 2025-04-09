@@ -1,15 +1,15 @@
 {
-    "name": "base",
-    "containerName": "base",
+    "name": "template",
+    "containerName": "template",
     "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/base",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/.devcontainer/template",
     "remoteUser": "root",
     "command": "sleep infinity",
     "forwardPorts": [],
     "shutdownAction": "stopCompose",
     "runArgs": [
-        "--name=base",
-        "--label=com.docker.compose.project=base"
+        "--name=template",
+        "--label=com.docker.compose.project=template"
     ],
     "features": {
         "ghcr.io/va-h/devcontainers-features/uv:1": {}
