@@ -1,0 +1,10 @@
+[project]
+name = "devcontainer"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=0.49.0",
+    "jupyterlab>=4.3.6",
+    "mcp[cli]>=1.6.0",
+    "python-dotenv>=1.1.0",
+]
