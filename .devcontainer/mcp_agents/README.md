@@ -1,15 +1,14 @@
 # MCP Agents
-...
+Complementary resource to the Medium blog [A Quick Introduction to Model Context Protocol (MCP) in Python](https://medium.com/p/bee6d36334ec). 
+
+## Dependencies
+This project uses Python 3.12, and UV for managing Python dependencies and running the MCP server. 
 
 ## Content
 Brife overview over relevant files.
 
-### Notebook
-...
+### `notebook/mcp_apent.ipynb`
+Notebook with Agent examples with Function Calling and MCP connection.
 
-### MCP server (mcp_server.py)
-
-Run
-```
-uv run mcp run mcp_server.py
-```
+### `notebook/mcp_server.py`
+Very simple MCP server with FastMCP.
